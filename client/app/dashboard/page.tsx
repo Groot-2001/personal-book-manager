@@ -32,7 +32,7 @@ export default function DashboardPage() {
 
       const response = await bookService.getBooks({
         search: search || undefined,
-        status: status || undefined,
+        status: status === "" ? undefined : status,
         tag: tag || undefined,
         sortBy,
       });
