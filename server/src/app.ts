@@ -5,8 +5,6 @@ import cookieParser from "cookie-parser";
 import { errorHandler } from "./middleware/error.middleware";
 import authRoutes from "./routes/auth.routes";
 import bookRoutes from "./routes/book.routes";
-import dotenv from "dotenv";
-dotenv().config;
 
 const app = express();
 
