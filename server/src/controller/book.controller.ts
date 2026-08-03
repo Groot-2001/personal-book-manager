@@ -45,7 +45,7 @@ export const getBookById = asyncHandler(async (req: Request, res: Response) => {
 export const updateBook = asyncHandler(async (req: Request, res: Response) => {
   const book = await bookService.updateBook(
     req.user._id.toString(),
-    req.params.id,
+    req.params.id as string,
     req.body
   );
 
@@ -59,7 +59,7 @@ export const updateBook = asyncHandler(async (req: Request, res: Response) => {
 export const deleteBook = asyncHandler(async (req: Request, res: Response) => {
   await bookService.deleteBook(
     req.user._id.toString(),
-    req.params.id
+    req.params.id as string
   );
 
   res.json({

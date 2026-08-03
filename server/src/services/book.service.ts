@@ -1,11 +1,11 @@
+import { z } from "zod";
+import { FilterQuery, SortOrder  } from "mongoose";
 import Book from "../models/book.model";
-import { FilterQuery } from "mongoose";
 import { BookQueryDto } from "../dto/book-query.dto";
 import { toBookDto } from "../dto/book.dto";
 import { getPagination } from "../utils/pagination";
 import { ApiError } from "../utils/ApiError";
 import { createBookSchema, updateBookSchema } from "../validators/book.validator";
-import { z } from "zod";
 
 export type CreateBookInput = z.infer<typeof createBookSchema>;
 export type UpdateBookInput = z.infer<typeof updateBookSchema>;
@@ -66,8 +66,9 @@ export class BookService {
 
     const skip = (page - 1) * limit;
 
-    const sort: Record<string, 1 | -1> = {
-      [sortBy]: order === "asc" ? 1 : -1,
+    const sort: Record<string, SortOrder> = {
+      [sortBy ?? "createdAt"]:
+        order === "asc" ? 1 : -1,
     };
 
     const [books, total] = await Promise.all([
