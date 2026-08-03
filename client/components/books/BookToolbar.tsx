@@ -48,7 +48,7 @@ export default function BookToolbar({
       <div className="flex flex-col gap-3 sm:flex-row">
         <select
           value={status}
-          onChange={(e) => onStatusChange(e.target.value)}
+          onChange={(e) => onStatusChange(e.target.value as BookStatus | "")}
           className="rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-500"
         >
           <option value="">All Status</option>
