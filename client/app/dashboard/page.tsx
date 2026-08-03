@@ -20,7 +20,7 @@ export default function DashboardPage() {
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState<BookStatus | "">("");
   const [tag, setTag] = useState("");
-  const [sortBy, setSortBy] = useState("createdAt");
+  const [sortBy, setSortBy] = useState<"createdAt" | "title" | "author">("createdAt");
   const [openModal, setOpenModal] = useState(false);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);

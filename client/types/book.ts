@@ -27,6 +27,7 @@ export interface BookQueryDto {
   limit?: number;
   search?: string;
   status?: BookStatus;
+  tag?: string;
   sortBy?: "createdAt" | "title" | "author";
   order?: "asc" | "desc";
 }

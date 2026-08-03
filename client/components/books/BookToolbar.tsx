@@ -1,18 +1,20 @@
 "use client";
 
-import { BookStatus } from "@/types/book";
+import {BookStatus} from "@/types/book";
 import {Search, Plus} from "lucide-react";
 
 interface BookToolbarProps {
   search: string;
   status: BookStatus | "";
-  sortBy: string;
+  sortBy: "createdAt" | "title" | "author";
   tag: string;
   tags: string[];
   onTagChange: (tag: string) => void;
   onSearchChange: (value: string) => void;
   onStatusChange: (value: BookStatus | "") => void;
-  onSortChange: (value: string) => void;
+  onSortChange: (
+    value: "createdAt" | "title" | "author"
+  ) => void;
 
   onAddBook: () => void;
 }
@@ -74,7 +76,14 @@ export default function BookToolbar({
 
         <select
           value={sortBy}
-          onChange={(e) => onSortChange(e.target.value)}
+          onChange={(e) =>
+            onSortChange(
+              e.target.value as
+                | "createdAt"
+                | "title"
+                | "author"
+            )
+          }
           className="rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-500"
         >
           <option value="createdAt">Newest</option>
