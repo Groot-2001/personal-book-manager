@@ -13,9 +13,7 @@ export const validate =
 
       if (source === "body") {
         req.body = parsed;
-      } else if (source === "params") {
-        req.params = parsed;
-      } else {
+      } else{
         // Express 5 doesn't allow assigning req.query,
         // so merge the validated values instead.
         Object.assign(req.query, parsed);

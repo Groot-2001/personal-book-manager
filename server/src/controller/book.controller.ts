@@ -1,6 +1,7 @@
 import { Request,Response } from "express";
 import { asyncHandler } from "../utils/asyncHandler";
 import { bookService } from "../services/book.service";
+import { BookQueryDto } from "../dto/book-query.dto";
 
 export const createBook = asyncHandler(async (req: Request, res: Response) => {
   const book = await bookService.createBook(
@@ -19,7 +20,7 @@ export const getBooks = asyncHandler(async (req: Request, res: Response) => {
 
   const result = await bookService.getBooks(
     req.user._id.toString(),
-    req.query
+    req.query as BookQueryDto
   );
 
   res.json({
@@ -32,7 +33,7 @@ export const getBooks = asyncHandler(async (req: Request, res: Response) => {
 export const getBookById = asyncHandler(async (req: Request, res: Response) => {
   const book = await bookService.getBookById(
     req.user._id.toString(),
-    req.params.id
+    req.params.id as string
   );
 
   res.json({
