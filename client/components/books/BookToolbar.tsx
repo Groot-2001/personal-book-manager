@@ -1,16 +1,17 @@
 "use client";
 
+import { BookStatus } from "@/types/book";
 import {Search, Plus} from "lucide-react";
 
 interface BookToolbarProps {
   search: string;
-  status: string;
+  status: BookStatus | "";
   sortBy: string;
   tag: string;
   tags: string[];
   onTagChange: (tag: string) => void;
   onSearchChange: (value: string) => void;
-  onStatusChange: (value: string) => void;
+  onStatusChange: (value: BookStatus | "") => void;
   onSortChange: (value: string) => void;
 
   onAddBook: () => void;

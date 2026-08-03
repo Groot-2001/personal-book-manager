@@ -9,7 +9,7 @@ import BookModal from "@/components/books/BookModal";
 import {useAuth} from "@/hooks/useAuth";
 import {bookService} from "@/services/book.service";
 import {getGreeting} from "@/utils/greeting";
-import {Book} from "@/types/book";
+import {Book, BookStatus} from "@/types/book";
 import ConfirmDialog from "@/components/ui/ConfirmDialog";
 import {toast} from "sonner";
 
@@ -18,14 +18,12 @@ export default function DashboardPage() {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState<BookStatus | "">("");
   const [tag, setTag] = useState("");
   const [sortBy, setSortBy] = useState("createdAt");
   const [openModal, setOpenModal] = useState(false);
-  const [selectedBook, setSelectedBook] =
-    useState<Book | null>(null);
-  const [openDeleteDialog, setOpenDeleteDialog] =
-    useState(false);
+  const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+  const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
   async function fetchBooks() {
