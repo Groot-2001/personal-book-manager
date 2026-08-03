@@ -1,0 +1,35 @@
+### Health Check
+GET http://localhost:5000
+
+###
+
+### Register User
+POST http://localhost:5000/api/auth/signup
+Content-Type: application/json
+
+{
+    "name": "Shiva",
+    "email": "shiva@gmail.com",
+    "password": "12345678"
+}
+
+###
+
+### Login User
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "shiva@gmail.com",
+    "password": "12345678"
+}
+
+###
+
+### Current User
+GET http://localhost:5000/api/auth/me
+
+###
+
+### Logout
+POST http://localhost:5000/api/auth/logout

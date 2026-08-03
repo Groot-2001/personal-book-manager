@@ -1,0 +1,60 @@
+### Create Book
+POST http://localhost:5000/api/books
+Content-Type: application/json
+
+{
+  "title": "Clean Code",
+  "author": "Robert C. Martin",
+  "status": "reading",
+  "tags": ["programming", "clean-code"]
+}
+
+### Get All Books
+GET http://localhost:5000/api/books
+
+###
+
+### Search
+GET http://localhost:5000/api/books?search=clean
+
+###
+
+### Reading Books
+GET http://localhost:5000/api/books?status=reading
+
+###
+
+### Pagination
+GET http://localhost:5000/api/books?page=1&limit=5
+
+###
+
+### Sorting
+GET http://localhost:5000/api/books?sortBy=title&order=asc
+
+### Get Book
+GET http://localhost:5000/api/books/{{bookId}}
+
+@bookId=6a702eef1d9df1924cb3a8c3
+
+###
+
+GET http://localhost:5000/api/books/{{bookId}}
+
+###
+
+### Update Book
+PATCH http://localhost:5000/api/books/{{bookId}}
+Content-Type: application/json
+
+{
+    "status":"completed"
+}
+
+###
+
+### Delete Book
+DELETE http://localhost:5000/api/books/{{bookId}}
+
+### filter by tag
+GET http://localhost:5000/api/books?status=completed&tag=programmingd
