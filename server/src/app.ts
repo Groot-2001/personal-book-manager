@@ -5,6 +5,8 @@ import cookieParser from "cookie-parser";
 import { errorHandler } from "./middleware/error.middleware";
 import authRoutes from "./routes/auth.routes";
 import bookRoutes from "./routes/book.routes";
+import dotenv from "dotenv";
+dotenv().config;
 
 const app = express();
 
@@ -12,7 +14,7 @@ app.use(helmet());
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.CLIENT_URL,
     credentials: true,
   })
 );
