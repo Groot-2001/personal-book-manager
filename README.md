@@ -8,7 +8,7 @@ The application allows users to securely manage their personal reading collectio
 
 ## Live Demo
 
-Frontend: [https://live-frontend-url.vercel.app](https://personal-book-manager-iqn2p2fu3-shivaswami841gmailcoms-projects.vercel.app/login)
+Frontend: [https://live-frontend-url.vercel.app]( https://personal-book-manager-1b0z9e3z0-shivaswami841gmailcoms-projects.vercel.app/register )
 
 Backend API: [https://live-backend-url.com](https://personal-book-manager-tig3.onrender.com)
 
